@@ -1,4 +1,4 @@
-file = "dna_raw.txt"
+file = "dna_raw_complicated.txt"
 dna_seq = {}
 key = []
 #reads a file and fills it in a hashset
@@ -13,14 +13,15 @@ with open(file) as f:
         else:
             dna_seq[key].append(line)
 
-
-#count how many of each letter there are
+print(dna_seq)
+#count how many of each letter there are in each value key pair
 counts={}
 
 for seq, lines in dna_seq.items():
-    count={}
+    lineCount = []
     #loops thru the dict, and then the value of the key and then each char in the value, prob is a one line to do this with an import or something?
     for line in lines:
+        count={}
         line = line.upper()
         for char in line:
             #adds it to the count if it alrdy exists in the dict, else it creates the start of the count
@@ -28,5 +29,6 @@ for seq, lines in dna_seq.items():
                 count[char] +=1
             else:
                 count[char]=1
-    counts[seq] = count
+        lineCount.append(count) #adds a new value to the key if it has multiple lines.
+    counts[seq] = lineCount #adds all the line values to the current key.
 print(counts)
