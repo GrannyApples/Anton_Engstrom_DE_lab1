@@ -16,6 +16,7 @@ counts={}
 for seq, lines in dna_seq.items():
     count={}
     for line in lines:
+        line = line.upper()
         for char in line:
             if char in count:
                 count[char] +=1
