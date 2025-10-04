@@ -1,13 +1,13 @@
 file = "dna_raw_complicated.txt"
 dna_seq = {}
 key = []
-#reads a file and fills it in a hashset
+#reads a file and fills it in a hashset by goin over it line by line
 with open(file) as f:
     for line in f:
         #removes whitespace
         line = line.strip()
         if line.startswith(">"):
-            #removes first index of seq(in this case the > .)
+            #skips first index of seq line(in this case the > .) so the dict key reads seq# instead of >seq#...
             key = line[1:]
             dna_seq[key] = []
         else:
