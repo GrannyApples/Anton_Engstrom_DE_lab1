@@ -11,4 +11,15 @@ with open(file) as f:
         else:
             dna_seq[key].append(line)
 
-print(dna_seq)
+counts={}
+
+for seq, lines in dna_seq.items():
+    count={}
+    for line in lines:
+        for char in line:
+            if char in count:
+                count[char] +=1
+            else:
+                count[char]=1
+    counts[seq] = count
+print(counts)
