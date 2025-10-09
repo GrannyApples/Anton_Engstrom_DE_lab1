@@ -40,19 +40,29 @@ def Letter_count(dna_seq):
     return counts
 
 def draw_Plot(dna_count):
+    for seq, lineCount in dna_count.items():
+        for i, count in enumerate(lineCount):
+            letters = list(count.keys())
+            values = list(count.values())
 
+            fig = plt.figure()
+            ax = plt.axes()
 
-    return
+            ax.plot(letters,values)
+            plt.show()
 
+# MAIN
 
 file1 = "dna_raw.txt"
 dna1 = Read_File(file1)
 dna1_count= Letter_count(dna1)
-print(dna1_count)
+dna1_plot = draw_Plot(dna1_count)
+print(dna1_plot)
 
 input("\nPress ENTER to show dna seq 2...\n")
 
 file2 = "dna_raw_complicated.txt"
 dna2 = Read_File(file2)
 dna2_count = Letter_count(dna2)
-print(dna2_count)
+dna2_plot = draw_Plot(dna2_count)
+print(dna2_plot)
